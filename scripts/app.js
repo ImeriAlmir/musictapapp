@@ -3,8 +3,10 @@ $(document).ready(function(){
     //add click events
     $(buttons).each(function(){
         $(this).click(function(){
-            var sound_file = $(this).data('sound');
-            console.log(sound_file);
+            var sound_file = $(this).parent().find('audio').first();
+            sound_file.volume = 0.2;
+            
+            $(sound_file).trigger('play');
         });
     });
 });
